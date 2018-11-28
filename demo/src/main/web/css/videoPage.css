@@ -1,0 +1,38 @@
+.width-fill {
+    width: 100%;
+    object-fit: fill;
+}
+
+.text-size-16 {
+    font-size: 3rem;
+}
+.advertisement-text{
+    color: red;
+    text-align: center;
+}
+.padding-1rem{
+    padding: 1rem;
+}
+.confirm{
+    cursor:pointer;
+    width: 42%;
+    padding-top: 35px;
+    padding-left:5%;
+    float:left;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+}
+.refuse{
+    cursor:pointer;
+    width: 42%;
+    padding-top: 35px;
+    padding-right:5%;
+    float:right;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+}
+.div-adv{
+    display: none;
+}

@@ -3,7 +3,7 @@
         "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.UserMapper">
-    <!--<resultMap id="result" type="com.example.demo.pojo.User">
+    <resultMap id="result" type="com.example.demo.pojo.User">
         <result property="id" column="id"/>
         <result property="name" column="name" />
         <result property="password" column="password" />
@@ -17,16 +17,15 @@
 
     <select id="findUserByName" resultMap="result">
       SELECT * FROM user where name=#{name}
-   </select>-->
+   </select>
 
     <insert id="insertUser" parameterType="com.example.demo.pojo.User"
             keyProperty="id" useGeneratedKeys="true">
       INSERT INTO user
       (
-      id,name,password,number
+     name,password,number
       )
       VALUES (
-      #{id},
       #{name, jdbcType=VARCHAR},
       #{password, jdbcType=VARCHAR},
       #{number}

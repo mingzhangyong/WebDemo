@@ -16,17 +16,17 @@ public class IndexController {
     @Autowired
     private UserService userservice;
 
-  /*  @RequestMapping("/ListUser")
+    @RequestMapping("/ListUser")
     @ResponseBody
     public List<User> ListUser(){
         return userservice.ListUser();
-    }*/
+    }
 
-   /* @RequestMapping("/ListUserByname")
+    @RequestMapping("/ListUserByname")
     @ResponseBody
     public List<User> ListUserByname(String name){
         return userservice.findByName(name);
-    }*/
+    }
 
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -51,7 +51,9 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public User insert(User user) {
+    @ResponseBody
+    public User insert(@RequestBody User user) {
+        System.out.println(" \n  user" + user.getName()  + "\n \n \n");
         return userservice.insertUser(user);
     }
 }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>像我这样的人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/videoPage.css?v=4" charset="UTF-8"/>
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>-->
+</head>
+<body>
+
+<video class="width-fill" src="http://111.231.205.87:8080/medias/wo.mp4" x5-playsinline="" playsinline=""
+       webkit-playsinline="" autoplay="autoplay" controls="controls" loop="loop">您的浏览器不支持 video 标签。
+</video>
+<div class="text-size-16 advertisement-text"> 下面是广告 ， 要看不 ？</div>
+
+<div class="advertisementChoose">
+    <div id="confirmAdv" class="text-size-16 advertisement-text confirm">看！</div>
+    <div id="refuseAdv" class="refuse">不看</div>
+</div>
+
+<div id="advertisement" class="div-adv">
+    <span class="advertisement-text">233333,还没赞助商呢！</span>
+</div>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+
+    $("#confirmAdv").click(function () {
+        confirmAdv(1);
+        $("#advertisement").show();
+    });
+    $("#refuseAdv").click(function () {
+        $("#advertisement").hide();
+        confirmAdv(0);
+    });
+    function User(name,password,number) {
+        this.name = name;
+        this.password = password;
+        this.number = number;
+    }
+
+    var confirmAdv = function (type) {
+        /*private int id;
+        private String name;
+        private String password;
+        private String number;*/
+        var now=new Date();
+                var year=now.getFullYear();
+                var moth=now.getMonth()+1;
+                var date = now.getDate();
+                var h = now.getHours();
+                var m = now.getMinutes();
+                var s = now.getSeconds();
+        var user = new User(year+"-" + moth + "-" + date , type+"" , h+":"+m+":"+s);
+
+        /*user.name = new Date();
+        user.password = type;
+        user.num = new Date().getDay();*/
+        $.ajax({
+            url:"http://192.168.32.101:8080/user/insert",    //请求的url地址
+            dataType:"json",   //返回格式为json
+            async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+            // data:{"id":"value"},    //参数值
+            data:JSON.stringify(user),
+            type:"POST",   //请求方式
+            contentType : "application/json",
+            beforeSend:function(){
+                //请求前的处理
+                console.log(JSON.stringify(user))
+            },
+            success:function(req){
+                //请求成功时处理
+                console.log(req)
+            },
+            complete:function(){
+                //请求完成的处理
+            },
+            error:function(){
+                //请求出错处理
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
+

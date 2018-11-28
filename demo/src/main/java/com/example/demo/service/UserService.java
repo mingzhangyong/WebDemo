@@ -13,19 +13,17 @@ public class UserService {
     @Autowired
     public UserMapper userMapper;
 
-   /* public List<User> findByName(String name) {
+    public List<User> findByName(String name) {
         return userMapper.findUserByName(name);
     }
-*/
     public User insertUser(User user) {
+        System.out.println(" \n  user" + user.getName()  + "\n \n \n");
         userMapper.insertUser(user);
         return user;
     }
-   /* public List<User> ListUser(){
+    public List<User> ListUser(){
         return userMapper.ListUser();
-    }*/
-
-
+    }
     public int Update(User user){
         return userMapper.Update(user);
     }

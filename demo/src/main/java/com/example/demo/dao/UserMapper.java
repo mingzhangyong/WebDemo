@@ -1,8 +1,5 @@
 package com.example.demo.dao;
 
-
-
-
 import com.example.demo.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,9 +7,9 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-/*    List<User> findUserByName(String name);
+    List<User> findUserByName(String name);
 
-    public List<User> ListUser();*/
+    public List<User> ListUser();
 
     public int insertUser(User user);
 
